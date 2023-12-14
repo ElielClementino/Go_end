@@ -1,37 +1,16 @@
 package handler
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"github.com/ElielClementino/Go_end/config"
+	"gorm.io/gorm"
 )
 
-func CreateTaskHandler(c *gin.Context) {
-	c.JSON(http.StatusCreated, gin.H{
-		"message": "Adiciona",
-	})
-}
+var (
+	logger *config.Logger
+	db     *gorm.DB
+)
 
-func ListTaskHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Lista",
-	})
-}
-
-func UpdateTaskHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Atualiza",
-	})
-}
-
-func DeleteTaskHandler(c *gin.Context) {
-	c.JSON(http.StatusNoContent, gin.H{
-		"message": "Deleta",
-	})
-}
-
-func ListTasksHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Listas",
-	})
+func InitializeHandler() {
+	logger = config.GetLogger("handler")
+	db = config.GetSQLite()
 }

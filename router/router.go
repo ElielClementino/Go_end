@@ -1,8 +1,14 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/ElielClementino/Go_end/handler"
+	"github.com/gin-gonic/gin"
+)
 
-func Initialize() {
+func InitializeRouter() {
+	// Initialize handler
+	handler.InitializeHandler()
+
 	// Initialize router with default confings
 	router := gin.Default()
 	router.GET("/ping", func(c *gin.Context) {

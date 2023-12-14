@@ -22,5 +22,5 @@ func main() {
 	}
 
 	// Initialize the router listening on :8080
-	router.Initialize()
+	router.InitializeRouter()
 }
