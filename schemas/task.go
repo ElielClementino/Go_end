@@ -1,4 +1,4 @@
-package task
+package schemas
 
 import "gorm.io/gorm"
 
