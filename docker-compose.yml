@@ -1,0 +1,10 @@
+services:
+
+  backend:
+    image: go-end
+    hostname: go-end
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
