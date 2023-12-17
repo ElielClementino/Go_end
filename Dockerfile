@@ -2,15 +2,13 @@ FROM golang:1.18
 
 WORKDIR App
 
-COPY go.mod ./
-COPY go.sum ./
+COPY go.mod go.sum ./
 
 RUN go mod download
 
 COPY . ./
 
-
-RUN go build -o Task
+RUN GOOS=linux go build -o Task
 
 EXPOSE 8080
 
