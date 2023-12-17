@@ -24,3 +24,16 @@ func (t *CreateTaskRequest) Validate() error {
 	}
 	return nil
 }
+
+type UpdateTaskRequest struct {
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	DueTo       string `json:"dueTo"`
+}
+
+func (t *UpdateTaskRequest) Validate() error {
+	if t.Title != "" || t.Description != "" || t.DueTo != "" {
+		return nil
+	}
+	return fmt.Errorf("at least one valid field must be provided")
+}
